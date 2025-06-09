@@ -67,6 +67,49 @@ The API will be available at `http://localhost:8000`.
 
 ## Docker Deployment
 
+### Option 1: Using Pre-built Images from GitHub Container Registry
+
+The XSS Validator Docker image is automatically built and published to GitHub Container Registry using GitHub Actions. This is the recommended approach for production deployments.
+
+1. **Pull the Image**:
+
+   ```bash
+   docker pull ghcr.io/bladewing/xss-validator:latest
+   ```
+
+2. **Run the Container**:
+
+   ```bash
+   docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:latest
+   ```
+
+   For production (detached mode):
+
+   ```bash
+   docker run -d -p 8000:8000 ghcr.io/bladewing/xss-validator:latest
+   ```
+
+3. **Using with Docker Compose**:
+
+   Create a `docker-compose.yml` file:
+
+   ```yaml
+   version: '3'
+   services:
+     xss-validator:
+       image: ghcr.io/bladewing/xss-validator:latest
+       ports:
+         - "8000:8000"
+   ```
+
+   Then run:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+### Option 2: Building Locally
+
 ### 1. Clone the Repository
 
 ```bash

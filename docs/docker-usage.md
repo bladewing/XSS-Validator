@@ -9,6 +9,33 @@ Before you begin, ensure you have the following installed:
 - [Docker](https://docs.docker.com/get-docker/)
 - [Docker Compose](https://docs.docker.com/compose/install/) (optional, for local development)
 
+## Using Pre-built Images from GitHub Container Registry
+
+The XSS Validator Docker image is automatically built and published to GitHub Container Registry using GitHub Actions. You can use these pre-built images instead of building the image locally.
+
+### Pulling the Image
+
+To pull the latest image from GitHub Container Registry:
+
+```bash
+docker pull ghcr.io/bladewing/xss-validator:latest
+```
+
+### Available Tags
+
+The following tags are available:
+
+- `latest`: The most recent build from the main branch
+- `vX.Y.Z`: Specific version releases (e.g., `v1.0.0`)
+- `vX.Y`: Major.Minor version (e.g., `v1.0`)
+- `sha-XXXXXXX`: Specific commit SHA
+
+### Running the Container from GitHub Container Registry
+
+```bash
+docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:latest
+```
+
 ## Building the Docker Image
 
 To build the Docker image for the XSS Validator application, run the following command from the project root:

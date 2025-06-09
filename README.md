@@ -2,6 +2,7 @@
 
 [![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/downloads/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Docker Build](https://github.com/bladewing/xss-validator/actions/workflows/docker-build-push.yml/badge.svg)](https://github.com/bladewing/xss-validator/actions/workflows/docker-build-push.yml)
 
 A tool for validating Cross-Site Scripting (XSS) vulnerabilities in web applications. This application checks whether students have found a way to insert an XSS script into a website by detecting JavaScript popups triggered by the payload.
 
@@ -35,7 +36,7 @@ A tool for validating Cross-Site Scripting (XSS) vulnerabilities in web applicat
    # Using uv (recommended)
    uv venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-   
+
    # Or using Python's built-in venv
    python -m venv .venv
    source .venv/bin/activate  # On Windows: .venv\Scripts\activate
@@ -45,7 +46,7 @@ A tool for validating Cross-Site Scripting (XSS) vulnerabilities in web applicat
    ```bash
    # Using uv
    uv pip install -e .
-   
+
    # Or using pip
    pip install -e .
    ```
@@ -57,6 +58,20 @@ A tool for validating Cross-Site Scripting (XSS) vulnerabilities in web applicat
    ```
 
 ### Using Docker
+
+#### Option 1: Using Pre-built Images from GitHub Container Registry
+
+1. Pull the image from GitHub Container Registry:
+   ```bash
+   docker pull ghcr.io/bladewing/xss-validator:latest
+   ```
+
+2. Run the container:
+   ```bash
+   docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:latest
+   ```
+
+#### Option 2: Building Locally
 
 1. Build and run with Docker Compose:
    ```bash
