@@ -4,7 +4,7 @@ This document outlines the standard practices and guidelines for Python developm
 
 ## Python Defaults
 
-- Use Python 3.8+ for all development
+- Use Python 3.13+ for all development
 - Follow PEP 8 style guidelines
 - Use type hints whenever possible
 - Limit line length to 88 characters (Black default)
@@ -39,6 +39,11 @@ This document outlines the standard practices and guidelines for Python developm
 - Keep dependencies up to date
 - Document all dependencies in pyproject.toml
 - Use consistent dependency versions across development environments
+- Key dependencies include:
+  - FastAPI for the API framework
+  - Playwright for browser automation and XSS testing
+  - pytest for testing
+  - uvicorn for serving the API
 
 ## Code Quality
 
@@ -49,3 +54,11 @@ This document outlines the standard practices and guidelines for Python developm
 - Write unit tests for all functionality
 - Aim for high test coverage
 - Use assertions and proper error handling
+
+## Project Structure
+
+- Source code is organized in the `src/` directory under the `xss_validator` package
+- Example scripts demonstrating usage are in the `examples/` directory
+- Utility and performance testing scripts are in the `scripts/` directory
+- Tests are located in the `tests/` directory
+- Documentation is maintained in the `docs/` directory
