@@ -13,6 +13,7 @@ dependencies = [
     "httpx>=0.24.0", # Required for FastAPI TestClient
     "matplotlib>=3.10.3",
     "numpy>=2.3.0",
+    "requests>=2.32.4",
 ]
 
 [project.optional-dependencies]
