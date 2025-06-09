@@ -46,7 +46,7 @@ This document outlines the tasks required to develop an application that checks 
 - [x] Develop integration tests for API endpoints
 - [x] Create test fixtures with known XSS payloads
 - [x] Implement tests for edge cases (timeouts, malformed inputs)
-- [ ] Create performance tests for concurrent API usage
+- [x] Create performance tests for concurrent API usage
 
 ## Dockerization
 
@@ -54,20 +54,20 @@ This document outlines the tasks required to develop an application that checks 
 - [x] Configure Docker to support headless browser operation
 - [x] Implement Docker Compose for local development
 - [x] Optimize Docker image size and build time
-- [ ] Create documentation for Docker usage
+- [x] Create documentation for Docker usage
 
 ## Documentation
 
 - [x] Write API documentation with examples
 - [x] Create usage examples for both input methods
-- [ ] Document known limitations and edge cases
-- [ ] Create troubleshooting guide
-- [ ] Write deployment instructions
+- [x] Document known limitations and edge cases
+- [x] Create troubleshooting guide
+- [x] Write deployment instructions
 
 ## Quality Assurance
 
 - [x] Perform security review of the application
 - [x] Conduct code review for best practices
 - [x] Ensure all tests pass consistently
-- [ ] Verify Docker container works in various environments
-- [ ] Check for any performance bottlenecks
+- [x] Verify Docker container works in various environments
+- [x] Check for any performance bottlenecks

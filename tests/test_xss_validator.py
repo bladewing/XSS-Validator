@@ -58,26 +58,16 @@ class TestBrowserAutomation:
             browser = await playwright.chromium.launch(headless=True)
             page = await browser.new_page()
 
-            # Registriere den Dialog-Handler VOR der Navigation
-            popup_detected = False
-
-            async def handle_dialog(dialog):
-                nonlocal popup_detected
-                popup_detected = True
-                await dialog.accept()
-
-            page.on("dialog", handle_dialog)
-
             # Navigate to the URL
             await page.goto(XSS_URL)
 
-            # Warte die angegebene Zeit (Standard POPUP_TIMEOUT)
-            await asyncio.sleep(POPUP_TIMEOUT / 1000)  # Konvertiere ms in Sekunden
+            # Check if a popup is triggered
+            result = await detect_popup(page)
 
             # Clean up
             await browser.close()
 
-            assert popup_detected is True, "XSS via URL should be detected"
+            assert result is True, "XSS via URL should be detected"
 
 
 class TestAPI:

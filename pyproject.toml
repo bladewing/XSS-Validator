@@ -9,8 +9,10 @@ dependencies = [
     "playwright>=1.40.0",
     "pytest>=7.4.0",
     "pytest-playwright>=0.4.0",
-    "pytest-asyncio>=0.21.0",  # For async tests
-    "httpx>=0.24.0",  # Required for FastAPI TestClient
+    "pytest-asyncio>=0.21.0", # For async tests
+    "httpx>=0.24.0", # Required for FastAPI TestClient
+    "matplotlib>=3.10.3",
+    "numpy>=2.3.0",
 ]
 
 [project.optional-dependencies]
