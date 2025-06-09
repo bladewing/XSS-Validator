@@ -1,8 +1,6 @@
-version: '3'
-
 services:
   xss-validator:
-    build: .
+    image: ghcr.io/bladewing/xss-validator:main
     ports:
       - "8000:8000"
     volumes:
