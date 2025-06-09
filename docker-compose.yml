@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  xss-validator:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./src:/app/src
+      - ./run.py:/app/run.py
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped

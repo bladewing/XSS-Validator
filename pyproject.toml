@@ -1,9 +1,35 @@
 [project]
 name = "xss-validator"
 version = "0.1.0"
-description = "Add your description here"
+description = "Application that checks whether students have found a way to insert an XSS script into a website"
 requires-python = ">=3.13"
 dependencies = [
     "fastapi>=0.115.12",
     "uvicorn>=0.34.3",
+    "playwright>=1.40.0",
+    "pytest>=7.4.0",
+    "pytest-playwright>=0.4.0",
+    "pytest-asyncio>=0.21.0",  # For async tests
+    "httpx>=0.24.0",  # Required for FastAPI TestClient
 ]
+
+[project.optional-dependencies]
+dev = [
+    "black>=23.3.0",
+    "flake8>=6.0.0",
+    "isort>=5.12.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
