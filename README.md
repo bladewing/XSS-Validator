@@ -124,6 +124,52 @@ Parameters:
 }
 ```
 
+### Using the API with Python Requests
+
+You can interact with the XSS Validator API using the Python requests library:
+
+```python
+import requests
+
+# API base URL (adjust if your server is running on a different host/port)
+api_base_url = "http://localhost:8000"
+
+# Example 1: Check XSS via input field
+def check_xss_via_input(url, payload):
+    response = requests.get(
+        f"{api_base_url}/check/input",
+        params={"url": url, "payload": payload}
+    )
+    return response.json()
+
+# Example 2: Check XSS via URL
+def check_xss_via_url(url):
+    response = requests.get(
+        f"{api_base_url}/check/url",
+        params={"url": url}
+    )
+    return response.json()
+
+# Usage examples
+if __name__ == "__main__":
+    # Test website URL
+    test_website = "http://example.com"
+
+    # XSS payload
+    xss_payload = "<script>alert(1)</script>"
+
+    # URL with XSS payload
+    xss_url = "http://example.com/search?q=<script>alert(1)</script>"
+
+    # Check XSS via input field
+    result1 = check_xss_via_input(test_website, xss_payload)
+    print(f"Input field check result: {result1}")
+
+    # Check XSS via URL
+    result2 = check_xss_via_url(xss_url)
+    print(f"URL check result: {result2}")
+```
+
 ### Demo Script
 
 You can run the included demo script to see the XSS validator in action:
