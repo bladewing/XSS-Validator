@@ -79,8 +79,8 @@ fi
 
 # Test input endpoint with non-XSS payload (to avoid actual XSS execution)
 echo "Testing input endpoint..."
-INPUT_RESPONSE=$(curl -s "http://localhost:8000/check/input?url=http://example.com&payload=test")
-if [[ $INPUT_RESPONSE == *"xss_detected"* ]]; then
+INPUT_RESPONSE=$(curl -s "http://localhost:8000/check/input?url=http://hackme.ifflaender-family.de:4010/&payload=<Script>success()</Script>")
+if [[ $INPUT_RESPONSE != *"No XSS"* ]]; then
     echo "✅ Input endpoint working correctly"
 else
     echo "❌ Input endpoint not working as expected"
@@ -93,8 +93,9 @@ fi
 
 # Test URL endpoint with non-XSS URL (to avoid actual XSS execution)
 echo "Testing URL endpoint..."
-URL_RESPONSE=$(curl -s "http://localhost:8000/check/url?url=http://example.com")
-if [[ $URL_RESPONSE == *"xss_detected"* ]]; then
+URL_RESPONSE=$(curl -s "http://localhost:8000/check/url?url=http://hackme.ifflaender-family.de:4010/search?q=%3CScript%3Esuccess%28%29%3C%2FScript%3E")
+echo "${URL_RESPONSE}"
+if [[ $URL_RESPONSE != *"No XSS"* ]]; then
     echo "✅ URL endpoint working correctly"
 else
     echo "❌ URL endpoint not working as expected"
