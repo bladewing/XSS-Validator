@@ -74,19 +74,19 @@ The XSS Validator Docker image is automatically built and published to GitHub Co
 1. **Pull the Image**:
 
    ```bash
-   docker pull ghcr.io/bladewing/xss-validator:latest
+   docker pull ghcr.io/bladewing/xss-validator:main
    ```
 
 2. **Run the Container**:
 
    ```bash
-   docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:latest
+   docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:main
    ```
 
    For production (detached mode):
 
    ```bash
-   docker run -d -p 8000:8000 ghcr.io/bladewing/xss-validator:latest
+   docker run -d -p 8000:8000 ghcr.io/bladewing/xss-validator:main
    ```
 
 3. **Using with Docker Compose**:
@@ -97,7 +97,7 @@ The XSS Validator Docker image is automatically built and published to GitHub Co
    version: '3'
    services:
      xss-validator:
-       image: ghcr.io/bladewing/xss-validator:latest
+       image: ghcr.io/bladewing/xss-validator:main
        ports:
          - "8000:8000"
    ```
@@ -242,8 +242,8 @@ The API will be available at `http://localhost:8000`.
 6. **Build and Push the Image**:
 
    ```bash
-   docker build -t xssvalidatoracr.azurecr.io/xss-validator:latest .
-   docker push xssvalidatoracr.azurecr.io/xss-validator:latest
+   docker build -t xssvalidatoracr.azurecr.io/xss-validator:main .
+   docker push xssvalidatoracr.azurecr.io/xss-validator:main
    ```
 
 7. **Deploy to Container Instances**:
@@ -252,7 +252,7 @@ The API will be available at `http://localhost:8000`.
    az container create \
      --resource-group xss-validator-rg \
      --name xss-validator \
-     --image xssvalidatoracr.azurecr.io/xss-validator:latest \
+     --image xssvalidatoracr.azurecr.io/xss-validator:main \
      --dns-name-label xss-validator \
      --ports 8000 \
      --memory 2

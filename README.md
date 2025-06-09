@@ -63,12 +63,12 @@ A tool for validating Cross-Site Scripting (XSS) vulnerabilities in web applicat
 
 1. Pull the image from GitHub Container Registry:
    ```bash
-   docker pull ghcr.io/bladewing/xss-validator:latest
+   docker pull ghcr.io/bladewing/xss-validator:main
    ```
 
 2. Run the container:
    ```bash
-   docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:latest
+   docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:main
    ```
 
 #### Option 2: Building Locally

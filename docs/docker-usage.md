@@ -18,14 +18,14 @@ The XSS Validator Docker image is automatically built and published to GitHub Co
 To pull the latest image from GitHub Container Registry:
 
 ```bash
-docker pull ghcr.io/bladewing/xss-validator:latest
+docker pull ghcr.io/bladewing/xss-validator:main
 ```
 
 ### Available Tags
 
 The following tags are available:
 
-- `latest`: The most recent build from the main branch
+- `main`: The most recent build from the main branch
 - `vX.Y.Z`: Specific version releases (e.g., `v1.0.0`)
 - `vX.Y`: Major.Minor version (e.g., `v1.0`)
 - `sha-XXXXXXX`: Specific commit SHA
@@ -33,7 +33,7 @@ The following tags are available:
 ### Running the Container from GitHub Container Registry
 
 ```bash
-docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:latest
+docker run -p 8000:8000 ghcr.io/bladewing/xss-validator:main
 ```
 
 ## Building the Docker Image
